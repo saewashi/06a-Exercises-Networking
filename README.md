@@ -1,16 +1,6 @@
 # 05a-Exercises-Networking
 
-Here are some exercises to help you learn about TCP/IP networks. You will also have a chance to briefly explore doctest.
-
-The three exercises include: 
-
-1. Two text files (Windows or Mac specific). Choose the file for your platform and follow the instructions. This will require you opening a command line and typing in several network-related commands. You will then include the results in the file along with a sentence of explanation.
-2. exercise2.py invites you to write several unit (doctest) tests
-3. exercise3.py lets you play with the requests python module and begin to make HTTP network request. You will need to download this module (through PyCharm or pip), the same way you installed pygame.
-
-The repository also includes a text file, stop_words.txt. This will be used in exercise3.py.
-
-As with your assignments, please edit the LICENSE file (replace the [year] [fullname] with the current year and your name), and edit this file to describe what your code does.
+This is the 5th exercise in the class Z399, to practice working with networks and doctests.
 
 ---
 

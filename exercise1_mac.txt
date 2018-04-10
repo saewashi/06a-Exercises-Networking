@@ -15,57 +15,161 @@ If you run into trouble, Google is your friend; there should be a lot of availab
 '''
 ----------------------------------
 hostname
+Sarahs-MacBook.local
 
-
-
+Ummm, this is just telling me that my hostname is local
 
 ----------------------------------
 netstat -p TCP
 
+Active Internet connections
+Proto Recv-Q Send-Q  Local Address          Foreign Address        (state)
+tcp4      31      0  172.20.10.5.56105      ec2-34-236-117-8.https CLOSE_WAIT
+tcp4       0      0  172.20.10.5.56095      151.101.184.133.https  ESTABLISHED
+tcp4       0      0  172.20.10.5.56090      lb-192-30-253-12.https ESTABLISHED
+tcp4       0      0  172.20.10.5.56088      151.101.184.133.https  ESTABLISHED
+tcp4       0      0  172.20.10.5.56086      151.101.184.133.https  ESTABLISHED
+tcp4       0      0  172.20.10.5.56081      151.101.184.133.https  ESTABLISHED
+tcp4       0      0  172.20.10.5.56080      151.101.184.133.https  ESTABLISHED
+tcp4       0      0  172.20.10.5.56079      151.101.184.133.https  ESTABLISHED
 
+
+
+This is looking at all the addresses that are connected to my computer.
 
 
 ----------------------------------
 ifconfig
 
+lo0: flags=8049<UP,LOOPBACK,RUNNING,MULTICAST> mtu 16384
+	options=1203<RXCSUM,TXCSUM,TXSTATUS,SW_TIMESTAMP>
+	inet 127.0.0.1 netmask 0xff000000
+	inet6 ::1 prefixlen 128
+	inet6 fe80::1%lo0 prefixlen 64 scopeid 0x1
+	nd6 options=201<PERFORMNUD,DAD>
+gif0: flags=8010<POINTOPOINT,MULTICAST> mtu 1280
+stf0: flags=0<> mtu 1280
+en0: flags=8863<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 1500
+	ether 8c:85:90:31:d3:d4
+	inet6 fe80::70:4b29:d224:5af2%en0 prefixlen 64 secured scopeid 0x4
+	inet 172.20.10.5 netmask 0xfffffff0 broadcast 172.20.10.15
+	nd6 options=201<PERFORMNUD,DAD>
+	media: autoselect
+	status: active
+p2p0: flags=8843<UP,BROADCAST,RUNNING,SIMPLEX,MULTICAST> mtu 2304
+	ether 0e:85:90:31:d3:d4
+	media: autoselect
+	status: inactive
+awdl0: flags=8943<UP,BROADCAST,RUNNING,PROMISC,SIMPLEX,MULTICAST> mtu 1484
+	ether ee:ce:e0:44:8f:f2
+	inet6 fe80::ecce:e0ff:fe44:8ff2%awdl0 prefixlen 64 scopeid 0x6
+	nd6 options=201<PERFORMNUD,DAD>
+	media: autoselect
+	status: active
+utun0: flags=8051<UP,POINTOPOINT,RUNNING,MULTICAST> mtu 2000
+	inet6 fe80::6ca5:6006:6e59:f4e0%utun0 prefixlen 64 scopeid 0x7
+	nd6 options=201<PERFORMNUD,DAD>
+utun1: flags=8051<UP,POINTOPOINT,RUNNING,MULTICAST> mtu 1380
+	inet6 fe80::52ac:9faf:8050:cd94%utun1 prefixlen 64 scopeid 0x8
+	nd6 options=201<PERFORMNUD,DAD>
 
+
+	This is looking at all the configurations of the network
 
 
 ----------------------------------
 nslookup www.iub.edu
 
+Server:		172.20.10.1
+Address:	172.20.10.1#53
 
+Non-authoritative answer:
+Name:	www.iub.edu
+Address: 129.79.78.185
+Name:	www.iub.edu
+
+
+This is looking up the iub.com server, getting the address, and the non-authoritative answer.
 
 
 ----------------------------------
 nslookup www.google.com
 
+Server:		172.20.10.1
+Address:	172.20.10.1#53
+
+Non-authoritative answer:
+Name:	www.google.com
+Address: 172.217.6.100
+
+
+This is looking up the google.com server, getting the address, and the non-authoritative answer.
 
 
 
 ----------------------------------
 ping www.iub.edu
 
+64 bytes from 129.79.78.185: icmp_seq=2 ttl=61 time=2.971 ms
+64 bytes from 129.79.78.185: icmp_seq=3 ttl=61 time=3.122 ms
+64 bytes from 129.79.78.185: icmp_seq=4 ttl=61 time=3.149 ms
+64 bytes from 129.79.78.185: icmp_seq=5 ttl=61 time=3.091 ms
+64 bytes from 129.79.78.185: icmp_seq=6 ttl=61 time=3.191 ms
+64 bytes from 129.79.78.185: icmp_seq=7 ttl=61 time=1.861 ms
+64 bytes from 129.79.78.185: icmp_seq=8 ttl=61 time=3.184 ms
+64 bytes from 129.79.78.185: icmp_seq=9 ttl=61 time=3.421 ms
+64 bytes from 129.79.78.185: icmp_seq=10 ttl=61 time=3.067 ms
+64 bytes from 129.79.78.185: icmp_seq=11 ttl=61 time=3.044 ms
+v64 bytes from 129.79.78.185: icmp_seq=12 ttl=61 time=1.809 ms
+64 bytes from 129.79.78.185: icmp_seq=13 ttl=61 time=3.114 ms
+64 bytes from 129.79.78.185: icmp_seq=14 ttl=61 time=3.230 ms
+64 bytes from 129.79.78.185: icmp_seq=15 ttl=61 time=3.229 ms
+64 bytes from 129.79.78.185: icmp_seq=16 ttl=61 time=3.237 ms
 
+Here the server or network is talking/ connecting with another network/server.
 
 
 ----------------------------------
 ping www.google.com
 
+64 bytes from 172.217.0.4: icmp_seq=0 ttl=54 time=7.944 ms
+64 bytes from 172.217.0.4: icmp_seq=1 ttl=54 time=9.435 ms
+64 bytes from 172.217.0.4: icmp_seq=2 ttl=54 time=9.280 ms
+64 bytes from 172.217.0.4: icmp_seq=3 ttl=54 time=9.571 ms
+64 bytes from 172.217.0.4: icmp_seq=4 ttl=54 time=9.517 ms
+64 bytes from 172.217.0.4: icmp_seq=5 ttl=54 time=9.616 ms
+64 bytes from 172.217.0.4: icmp_seq=6 ttl=54 time=9.483 ms
+64 bytes from 172.217.0.4: icmp_seq=7 ttl=54 time=7.790 ms
 
+here the computer network is talking with the google network. They are just having a conversation.
 
 
 ----------------------------------
 traceroute www.iub.edu
 
+traceroute: Warning: www.iub.edu has multiple addresses; using 129.79.78.185
+traceroute to www.iub.edu (129.79.78.185), 64 hops max, 52 byte packets
+ 1  149-161-192-2 (149.161.192.2)  3.313 ms  1.386 ms  1.352 ms
+ 2  ae-15.0.br2.bldc.net.uits.iu.edu (134.68.3.74)  1.467 ms  1.519 ms  1.259 m
 
+ Here the traceroute is warning that the iub website has many addresses.
 
 
 ----------------------------------
 traceroute www.google.com
 
 
+traceroute to www.google.com (172.217.0.4), 64 hops max, 52 byte packets
+ 1  149-161-192-2 (149.161.192.2)  1.556 ms  1.267 ms  1.282 ms
+ 2  ae-15.0.br2.bldc.net.uits.iu.edu (134.68.3.74)  1.376 ms  1.301 ms  1.227 ms
+ 3  ae-4.12.rtr.ll.indiana.gigapop.net (149.165.183.13)  3.397 ms  3.448 ms  3.347 ms
+ 4  et-1-3-0.1.rtr.ictc.indiana.gigapop.net (149.165.255.193)  3.945 ms  3.962 ms  5.362 ms
+ 5  lo-0.1.rtr2.chic.indiana.gigapop.net (149.165.255.6)  8.276 ms  8.316 ms  8.127 ms
+ 6  149.165.183.82 (149.165.183.82)  8.087 ms  8.326 ms  8.629 ms
+ 7  google-pni-a.wiscnet.net (205.213.119.62)  8.319 ms  9.113 ms
+    74.125.49.37 (74.125.49.37)  8.530 ms
 
+    This is getting the IP addresses that are connected to google.com.
 
 ----------------------------------
 telnet esqsoft.com 80
@@ -73,3 +177,108 @@ telnet esqsoft.com 80
 GET /examples/troubleshooting-http-using-telnet.htm HTTP/1.1
 host: esqsoft.com
 
+Trying 104.198.14.52...
+Connected to esqsoft.com.
+Escape character is '^]'.
+GET /examples/troubleshooting-http-using-telnet.htm HTTP/1.1
+host: esqsoft.com
+
+HTTP/1.1 200 OK
+Cache-Control: public, max-age=0, must-revalidate
+Content-Type: text/html; charset=UTF-8
+Date: Tue, 10 Apr 2018 21:05:06 GMT
+Etag: "b0eb7b1fd0caa8c333e2cd0fdfb13b70"
+Age: 0
+Transfer-Encoding: chunked
+Connection: keep-alive
+Server: Netlify
+
+cc9
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<title>HTTP Help: How to test HTTP using Telnet</title>
+<meta name="keywords" content="upload,pictures,photos,internet,website">
+</head><body><script language="JavaScript" src="../template/template1.js"></script><script>document.write(header())</script>
+<!-- start: content -->
+
+
+<style>
+xmp{ margin-top: 0px; padding-left: 10px;}
+.notes{ font-size: 8pt; }
+</style>
+
+<h1>HTTP Help: How to test HTTP using Telnet</h1>
+
+<p>Telnet is a long-time favorite for troubleshooting connection issues. It can be used to attempt to connect to a server on a given port.
+Generally you can quickly ascertain whether something is "listening" on the remote side--which will confirm that (1) you can get to the remote server
+from your test box, and (2) that a server is running and bound to the specified port you requested.
+
+<p>More specifically, telnet can be used to test HTTP scenarios, effectively stripping through all the friendly layers a browser usually hides from web visitor eyes.
+Troubleshooting HTTP using telnet is a great way to review exactly what is getting returned to your browser during a web request for a particular url.
+This allows you to see headers and collect other information related to the web server.
+
+<p>Need a good HTTP troubleshooting reference? Here are some
+<a target="_blank" href="http://www.amazon.com/gp/redirect.html?ie=UTF8&location=http%3A%2F%2Fwww.amazon.com%2Fs%3Furl%3Dsearch-alias%253Daps%26field-keywords%3Dhttp%26x%3D0%26y%3D0&tag=esqsoftcom-20&linkCode=ur2&camp=1789&creative=9325">HTTP resources</a><img src="//www.assoc-amazon.com/e/ir?t=esqsoftcom-20&l=ur2&o=1" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />.
+
+<p>Here is a simple example making an HTTP 1.1 request. First, get to a command prompt. For example, if you are using <code>Windows, Start -> Run -> cmd</code>.
+(Though if you are using Windows, you may want to use something like CYGWIN, or Putty rather than the DOS prompt.)
+
+<p>INPUT:<xmp>
+>telnet www.esqsoft.globalservers.com 80
+</xmp>
+<div class="notes">
+Note: this launches <b>telnet</b> and tells it to look up and connect to the server for "www.esqsoft.globalservers.com" on port 80.
+</div>
+
+<p>OUTPUT:<xmp>
+Trying 64.136.56.122...
+Connected to www.esqsoft.globalservers.com.
+Escape character is '^]'.
+</xmp>
+
+<p>INPUT:
+<xmp>
+GET /index.htm HTTP/1.1
+host: www.esqsoft.globalservers.com
+<line feed>
+</xmp>
+<div class="notes">
+Notes:
+<br>1) no OS cursor caret, the connection is open so you just get a blank line waiting for input.
+<br>2) need to hit &lt;enter&gt; twice after the "host:"
+</div>
+
+
+<p>OUTPUT:
+<code><xmp>
+HTTP/1.1 200 OK
+Date: Mon, 18 Apr 2005 16:38:00 GMT
+Server: Apache/1.3.27 (Unix)  (Red-Hat/Linux) mod_ssl/2.8.12 OpenSSL/0.9.6 PHP/4.1.2 mod_perl/1.27 FrontPage/5.0.2.2623
+Last-Modified: Thu, 01 Jul 2004 01:16:05 GMT
+ETag: "158e008c-182c-40e365d5"
+Accept-Ranges: bytes
+Content-Length: 6188
+Connection: close
+Content-Type: text/html
+
+<html>
+<head>
+<title>...
+
+...lots of HTML code here...
+
+</body></html>
+Connection closed by foreign host.
+>
+</xmp></code>
+
+
+<h2>
+Additional keywords: troubleshooting, http, telnet
+</h2>
+
+
+<!-- end: content -->
+<script>document.write(footer(''))</script></body></html>
+
+
+This is retrieving the HTML code from the website.
